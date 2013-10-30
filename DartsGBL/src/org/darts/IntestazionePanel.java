@@ -105,5 +105,4 @@ public class IntestazionePanel extends JPanel {
 		}
 		return 0;
 	}
-	
 }
