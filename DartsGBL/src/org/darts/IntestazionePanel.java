@@ -103,7 +103,7 @@ public class IntestazionePanel extends JPanel {
 				return (Integer.parseInt(button.getText()));
 			}
 		}
-
 		return 0;
 	}
+	
 }

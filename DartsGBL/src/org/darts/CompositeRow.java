@@ -69,7 +69,5 @@ public class CompositeRow extends JPanel {
 		gbc_lblNewLabel_3.gridx = 4;
 		gbc_lblNewLabel_3.gridy = 0;
 		add(lblNewLabel_3, gbc_lblNewLabel_3);
-
 	}
-
 }

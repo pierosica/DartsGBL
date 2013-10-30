@@ -77,4 +77,5 @@ public class AppMain extends JFrame {
 		gbc_intestazionePanel.gridy = 0;
 		contentPane.add(intestazionePanel, gbc_intestazionePanel);
 	}
+	
 }
