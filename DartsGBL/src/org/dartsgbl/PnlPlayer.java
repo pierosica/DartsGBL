@@ -1,4 +1,4 @@
-package org.darts;
+package org.dartsgbl;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -9,7 +9,7 @@ import java.awt.LayoutManager;
 import java.awt.Component;
 import javax.swing.border.EmptyBorder;
 
-public class PnlPlayerLab2 extends JPanel {
+public class PnlPlayer extends JPanel {
 
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class PnlPlayerLab2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlPlayerLab2(int id) {
+	public PnlPlayer(int id) {
 		setMinimumSize(new Dimension(220, 400));
 		setMaximumSize(new Dimension(220, 400));
 		setPreferredSize(new Dimension(220, 400));

@@ -1,4 +1,4 @@
-package org.darts;
+package org.dartsgbl;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
 
-public class PnlIntestazioneLab2 extends JPanel {
+public class PnlIntestazione extends JPanel {
 
 	private static final long serialVersionUID = -3659421407056991803L;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -25,7 +25,7 @@ public class PnlIntestazioneLab2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlIntestazioneLab2() {
+	public PnlIntestazione() {
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		//setBackground(new Color(0, 255, 0));
 		setOpaque(false);
@@ -106,7 +106,7 @@ public class PnlIntestazioneLab2 extends JPanel {
 				null, options, options[1]);
 		if (n == 0) {
 			selectedVal = getSelectedButtonVal(buttonGroup);
-			GuiLab2.buildIt(selectedVal);
+			DartsGBLGui.buildIt(selectedVal);
 		} else if (n == 1) {
 			// usata se clikko Annulla
 		} else {

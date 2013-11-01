@@ -1,4 +1,4 @@
-package org.darts;
+package org.dartsgbl;
 
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
@@ -7,7 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class PnlBodyLab2 extends JPanel {
+public class PnlBody extends JPanel {
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class PnlBodyLab2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlBodyLab2(int numeroGiocatori) {
+	public PnlBody(int numeroGiocatori) {
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 200, 200, 200, 200, 0 };
@@ -27,10 +27,10 @@ public class PnlBodyLab2 extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		PnlPlayerLab2 pnlPlayer;
+		PnlPlayer pnlPlayer;
 		for (int i = 0; i < numeroGiocatori; i++) {
 			System.out.println(numeroGiocatori);
-			pnlPlayer = new PnlPlayerLab2(i);
+			pnlPlayer = new PnlPlayer(i);
 			GridBagConstraints gbc_pnlPlayerLab2 = new GridBagConstraints();
 			gbc_pnlPlayerLab2.insets = new Insets(0, 5, 0, 5);
 			gbc_pnlPlayerLab2.fill = GridBagConstraints.BOTH;

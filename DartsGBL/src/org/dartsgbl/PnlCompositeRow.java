@@ -1,4 +1,4 @@
-package org.darts;
+package org.dartsgbl;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.Color;
 
-public class CompositeRow extends JPanel {
+public class PnlCompositeRow extends JPanel {
 
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class CompositeRow extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CompositeRow() {
+	public PnlCompositeRow() {
 		setMinimumSize(new Dimension(230, 30));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{30, 30, 30, 30, 30, 0};
