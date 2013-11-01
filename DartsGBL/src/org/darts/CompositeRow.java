@@ -2,7 +2,6 @@ package org.darts;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
-import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import java.awt.Insets;
@@ -11,6 +10,11 @@ import java.awt.Dimension;
 import java.awt.Color;
 
 public class CompositeRow extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5976457241163890455L;
 
 	/**
 	 * Create the panel.
