@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 
-public class LblNumeroLab2 extends JLabel {
+public class LblNumero extends JLabel {
 
 	/**
 	 * 
@@ -50,7 +50,7 @@ public class LblNumeroLab2 extends JLabel {
 		}
 	}
 
-	public LblNumeroLab2() {
+	public LblNumero() {
 		this.setBackground(grigio);
 		this.setOpaque(true);
 	}

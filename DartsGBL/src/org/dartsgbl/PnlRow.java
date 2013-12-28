@@ -9,15 +9,15 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PnlCompositeRowLab2 extends JPanel {
+public class PnlRow extends JPanel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5976457241163890455L;
-	public LblNumeroLab2 lblNumeroA;
-	public LblNumeroLab2 lblNumeroB;
-	public LblNumeroLab2 lblNumeroC;
+	public LblNumero lblNumeroA;
+	public LblNumero lblNumeroB;
+	public LblNumero lblNumeroC;
 	private boolean rowChiusa;
 	private boolean rowMorta;
 
@@ -32,7 +32,7 @@ public class PnlCompositeRowLab2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlCompositeRowLab2(final int idpannello, final int idriga) {
+	public PnlRow(final int idpannello, final int idriga) {
 		Insets internalPadding = new Insets(2, 2, 2, 2);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 45, 30, 30, 30, 20 };
@@ -42,7 +42,7 @@ public class PnlCompositeRowLab2 extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		lblNumeroA = new LblNumeroLab2();
+		lblNumeroA = new LblNumero();
 		GridBagConstraints gbc_lblNewLabel1 = new GridBagConstraints();
 		gbc_lblNewLabel1.fill = GridBagConstraints.BOTH;
 		gbc_lblNewLabel1.insets = new Insets(2, 2, 2, 5);
@@ -50,7 +50,7 @@ public class PnlCompositeRowLab2 extends JPanel {
 		gbc_lblNewLabel1.gridy = 0;
 		add(lblNumeroA, gbc_lblNewLabel1);
 
-		lblNumeroB = new LblNumeroLab2();
+		lblNumeroB = new LblNumero();
 		lblNumeroB.setOpaque(true);
 		GridBagConstraints gbc_lblNewLabel2 = new GridBagConstraints();
 		gbc_lblNewLabel2.fill = GridBagConstraints.BOTH;
@@ -59,7 +59,7 @@ public class PnlCompositeRowLab2 extends JPanel {
 		gbc_lblNewLabel2.gridy = 0;
 		add(lblNumeroB, gbc_lblNewLabel2);
 
-		lblNumeroC = new LblNumeroLab2();
+		lblNumeroC = new LblNumero();
 		lblNumeroC.setOpaque(true);
 		GridBagConstraints gbc_lblNewLabel3 = new GridBagConstraints();
 		gbc_lblNewLabel3.fill = GridBagConstraints.BOTH;
@@ -82,8 +82,8 @@ public class PnlCompositeRowLab2 extends JPanel {
 		btnPreso.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (PnlBodyLab2.isNumeroMorto(idriga) || isRowChiusa(idpannello, idriga)) {
-					PnlBodyLab2.incrementa(idpannello, idriga);
+				if (PnlBody.isNumeroMorto(idriga) || isRowChiusa(idpannello, idriga)) {
+					PnlBody.incrementa(idpannello, idriga);
 				} else {
 					if (!lblNumeroA.isPreso()) {
 						lblNumeroA.setPreso(true);
@@ -96,9 +96,9 @@ public class PnlCompositeRowLab2 extends JPanel {
 							if (!lblNumeroC.isPreso()) {
 								lblNumeroC.setPreso(true);
 								setRowChiusa(idpannello, idriga, true);
-								rowMorta = PnlBodyLab2.controllaSeDaSettareNumeroMorto(idriga);
+								rowMorta = PnlBody.controllaSeDaSettareNumeroMorto(idriga);
 								if (rowMorta) {
-									PnlBodyLab2.setNumeroMorto(idriga);
+									PnlBody.setNumeroMorto(idriga);
 								}
 							}
 						}
@@ -121,11 +121,11 @@ public class PnlCompositeRowLab2 extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(PnlBodyLab2.isNumeroMorto(idriga)) {
-					System.out.println("isNumeroMorto: " + PnlBodyLab2.isNumeroMorto(idriga));
-					PnlBodyLab2.setNumeroNonMorto(idriga);
+				if(PnlBody.isNumeroMorto(idriga)) {
+					System.out.println("isNumeroMorto: " + PnlBody.isNumeroMorto(idriga));
+					PnlBody.setNumeroNonMorto(idriga);
 					setRowChiusa(idpannello, idriga, false);
-					System.out.println("isNumeroMorto: " + PnlBodyLab2.isNumeroMorto(idriga));
+					System.out.println("isNumeroMorto: " + PnlBody.isNumeroMorto(idriga));
 				}
 				
 				if (isRowChiusa(idpannello, idriga)){

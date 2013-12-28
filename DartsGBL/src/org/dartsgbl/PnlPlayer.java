@@ -7,21 +7,21 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class PnlPlayerLab2 extends JPanel {
+public class PnlPlayer extends JPanel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2648011732529825438L;
 	public static int NumeroRighe = 21;
-	private PnlCompositeRowLab2 riga;
+	private PnlRow riga;
 	public int IDpannello;
-	public PnlCompositeRowLab2[] rowArray = new PnlCompositeRowLab2[NumeroRighe];
+	public PnlRow[] rowArray = new PnlRow[NumeroRighe];
 
 	/**
 	 * Create the panel.
 	 */
-	public PnlPlayerLab2(int id) {
+	public PnlPlayer(int id) {
 		this.IDpannello = id;
 		setName("id");
 		setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -37,7 +37,7 @@ public class PnlPlayerLab2 extends JPanel {
 		setLayout(gridBagLayout);
 
 		for (int i = 0; i < NumeroRighe; i++) {
-			riga = new PnlCompositeRowLab2(this.IDpannello, i);
+			riga = new PnlRow(this.IDpannello, i);
 			rowArray[i] = riga;
 			GridBagConstraints gbc_riga = new GridBagConstraints();
 			gbc_riga.fill = GridBagConstraints.BOTH;

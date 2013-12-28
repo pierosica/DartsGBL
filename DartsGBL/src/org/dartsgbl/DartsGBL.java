@@ -9,12 +9,12 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class GuiLab2 extends JFrame {
+public class DartsGBL extends JFrame {
 
 	private static final long serialVersionUID = 5375213009082631974L;
 	private static JPanel contentPane;
-	private static PnlBodyLab2 pnlBodyLab2;
-	private static PnlIntestazioneLab2 pnlIntestazione; 
+	private static PnlBody pnlBodyLab2;
+	private static PnlIntestazione pnlIntestazione; 
 
 	/**
 	 * Launch the application.
@@ -23,7 +23,7 @@ public class GuiLab2 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GuiLab2 frame = new GuiLab2();
+					DartsGBL frame = new DartsGBL();
 					frame.setLocationRelativeTo(null);
 					frame.pack();
 					frame.setVisible(true);
@@ -35,7 +35,7 @@ public class GuiLab2 extends JFrame {
 	}
 
 	public static void buildIt(int numeroGiocatori) {
-		pnlBodyLab2 = new PnlBodyLab2(numeroGiocatori);
+		pnlBodyLab2 = new PnlBody(numeroGiocatori);
 		GridBagConstraints gbc_pnlBodyLab2 = new GridBagConstraints();
 //		gbc_pnlBodyLab2.insets = new Insets(0, 5, 5, 5);
 		gbc_pnlBodyLab2.fill = GridBagConstraints.BOTH;
@@ -54,7 +54,7 @@ public class GuiLab2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GuiLab2() {
+	public DartsGBL() {
 		setTitle("GuiLab2");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800, 600));
@@ -68,7 +68,7 @@ public class GuiLab2 extends JFrame {
 		gbl_contentPane.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 
-		pnlIntestazione = new PnlIntestazioneLab2();
+		pnlIntestazione = new PnlIntestazione();
 		GridBagConstraints gbc_pnlIntestazioneLab2 = new GridBagConstraints();
 		gbc_pnlIntestazioneLab2.insets = new Insets(5, 5, 5, 5);
 		gbc_pnlIntestazioneLab2.fill = GridBagConstraints.BOTH;
@@ -78,7 +78,7 @@ public class GuiLab2 extends JFrame {
 		gbc_pnlIntestazioneLab2.weighty = 0;
 		contentPane.add(pnlIntestazione, gbc_pnlIntestazioneLab2);
 
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
 		buildIt(numeroGiocatori);
 	}
 }

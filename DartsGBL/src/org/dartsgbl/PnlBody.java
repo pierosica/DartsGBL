@@ -8,10 +8,10 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class PnlBodyLab2 extends JPanel {
+public class PnlBody extends JPanel {
 
 	private static final long serialVersionUID = 6866172652472739639L;
-	private static PnlPlayerLab2[] pnlPlayerArray;
+	private static PnlPlayer[] pnlPlayerArray;
 	private static JTextField[] txtNomeArray;
 	private static JTextField[] txtPuntiArray;
 	private static boolean[] mortoArray;
@@ -22,25 +22,25 @@ public class PnlBodyLab2 extends JPanel {
 
 	public static void setNumeroNonMorto(int riga) {
 		mortoArray[riga] = false;
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
 		for (int i = 0; i < numeroGiocatori; i++) {
-			PnlPlayerLab2 otherpanel = pnlPlayerArray[i];
-			PnlCompositeRowLab2 otherrow = otherpanel.rowArray[riga];
-			LblNumeroLab2 lblNumeroA = otherrow.lblNumeroA;
+			PnlPlayer otherpanel = pnlPlayerArray[i];
+			PnlRow otherrow = otherpanel.rowArray[riga];
+			LblNumero lblNumeroA = otherrow.lblNumeroA;
 			lblNumeroA.setMorto(false);
-			LblNumeroLab2 lblNumeroB = otherrow.lblNumeroB;
+			LblNumero lblNumeroB = otherrow.lblNumeroB;
 			lblNumeroB.setMorto(false);
-			LblNumeroLab2 lblNumeroC = otherrow.lblNumeroC;
+			LblNumero lblNumeroC = otherrow.lblNumeroC;
 			lblNumeroC.setMorto(false);
 		}
 	}
 
 	public static boolean controllaSeDaSettareNumeroMorto(int riga) {
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
 		boolean morto = true;
 		for (int i = 0; i < numeroGiocatori; i++) {
-			PnlPlayerLab2 otherpanel = pnlPlayerArray[i];
-			PnlCompositeRowLab2 otherrow = otherpanel.rowArray[riga];
+			PnlPlayer otherpanel = pnlPlayerArray[i];
+			PnlRow otherrow = otherpanel.rowArray[riga];
 			morto = morto & otherrow.isRowChiusa(i, riga);
 		}
 		return morto;
@@ -48,21 +48,21 @@ public class PnlBodyLab2 extends JPanel {
 
 	public static void setNumeroMorto(int riga) {
 		mortoArray[riga] = true;
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
 		for (int i = 0; i < numeroGiocatori; i++) {
-			PnlPlayerLab2 otherpanel = pnlPlayerArray[i];
-			PnlCompositeRowLab2 otherrow = otherpanel.rowArray[riga];
-			LblNumeroLab2 lblNumeroA = otherrow.lblNumeroA;
+			PnlPlayer otherpanel = pnlPlayerArray[i];
+			PnlRow otherrow = otherpanel.rowArray[riga];
+			LblNumero lblNumeroA = otherrow.lblNumeroA;
 			lblNumeroA.setMorto(true);
-			LblNumeroLab2 lblNumeroB = otherrow.lblNumeroB;
+			LblNumero lblNumeroB = otherrow.lblNumeroB;
 			lblNumeroB.setMorto(true);
-			LblNumeroLab2 lblNumeroC = otherrow.lblNumeroC;
+			LblNumero lblNumeroC = otherrow.lblNumeroC;
 			lblNumeroC.setMorto(true);
 		}
 	}
 
 	public static void incrementa(int pannello, int riga) {
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
 		int delta = 1;
 		if (riga == 20) {
 			delta = 5;
@@ -74,8 +74,8 @@ public class PnlBodyLab2 extends JPanel {
 			mieiPunti.setText("" + totale);
 		} else {
 			for (int i = 0; i < numeroGiocatori; i++) {
-				PnlPlayerLab2 otherpanel = pnlPlayerArray[i];
-				PnlCompositeRowLab2 otherrow = otherpanel.rowArray[riga];
+				PnlPlayer otherpanel = pnlPlayerArray[i];
+				PnlRow otherrow = otherpanel.rowArray[riga];
 				if (i != pannello) {
 					if (!otherrow.isRowChiusa(pannello, riga)) {
 						JTextField otherPunti = txtPuntiArray[i];
@@ -89,10 +89,10 @@ public class PnlBodyLab2 extends JPanel {
 	}
 
 	public static void calcolaChiusura() {
-		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
-		int numeroRighe = PnlPlayerLab2.NumeroRighe;
+		int numeroGiocatori = PnlIntestazione.getSelectedVal();
+		int numeroRighe = PnlPlayer.NumeroRighe;
 		for (int i = 0; i < numeroGiocatori; i++) {
-			PnlPlayerLab2 otherpanel = pnlPlayerArray[i];
+			PnlPlayer otherpanel = pnlPlayerArray[i];
 			JTextField mieiPunti = txtPuntiArray[i];
 			int totale = Integer.parseInt(mieiPunti.getText().toString());
 			int delta = 1;
@@ -101,7 +101,7 @@ public class PnlBodyLab2 extends JPanel {
 							+ totale);
 
 			for (int j = 0; j < numeroRighe; j++) {
-				PnlCompositeRowLab2 otherrow = otherpanel.rowArray[j];
+				PnlRow otherrow = otherpanel.rowArray[j];
 				if (j == 20) {
 					delta = 5;
 				}
@@ -136,12 +136,12 @@ public class PnlBodyLab2 extends JPanel {
 		}
 	}
 
-	public PnlBodyLab2(int numeroGiocatori) {
-		pnlPlayerArray = new PnlPlayerLab2[numeroGiocatori];
+	public PnlBody(int numeroGiocatori) {
+		pnlPlayerArray = new PnlPlayer[numeroGiocatori];
 		txtNomeArray = new JTextField[numeroGiocatori];
 		txtPuntiArray = new JTextField[numeroGiocatori];
 		mortoArray = new boolean[21];
-		PnlPlayerLab2 pnlPlayer;
+		PnlPlayer pnlPlayer;
 		JTextField txtPlayerName;
 		JTextField txtPlayerPunti;
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -177,7 +177,7 @@ public class PnlBodyLab2 extends JPanel {
 			gbc_txtNewLabel.gridy = 1;
 			add(txtPlayerPunti, gbc_txtNewLabel);
 
-			pnlPlayer = new PnlPlayerLab2(i);
+			pnlPlayer = new PnlPlayer(i);
 			pnlPlayerArray[i] = pnlPlayer;
 			GridBagConstraints gbc_pnlPlayerLab2 = new GridBagConstraints();
 			gbc_pnlPlayerLab2.insets = new Insets(5, 5, 5, 5);
