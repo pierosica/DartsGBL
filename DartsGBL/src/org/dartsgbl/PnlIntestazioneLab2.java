@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
 
-public class PnlIntestazione extends JPanel {
+public class PnlIntestazioneLab2 extends JPanel {
 
 	private static final long serialVersionUID = -3659421407056991803L;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -25,7 +25,7 @@ public class PnlIntestazione extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PnlIntestazione() {
+	public PnlIntestazioneLab2() {
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		//setBackground(new Color(0, 255, 0));
 		setOpaque(false);
@@ -82,10 +82,7 @@ public class PnlIntestazione extends JPanel {
 		btnNuovaPartita.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// selectedVal = getSelectedButtonVal(buttonGroup);
-				// conferma.setVisible(true);
 				jOptionPanelConferma();
-				// DartMain.buildIt(selectedVal);
 			}
 		});
 		add(btnNuovaPartita, gbc_btnNuovaPartita);
@@ -96,6 +93,13 @@ public class PnlIntestazione extends JPanel {
 		gbc_btnCalcolaChiusura.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnCalcolaChiusura.gridx = 6;
 		gbc_btnCalcolaChiusura.gridy = 0;
+		btnCalcolaChiusura.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				PnlBodyLab2.calcolaChiusura();
+			}
+		});
 		add(btnCalcolaChiusura, gbc_btnCalcolaChiusura);
 	}
 
@@ -106,7 +110,9 @@ public class PnlIntestazione extends JPanel {
 				null, options, options[1]);
 		if (n == 0) {
 			selectedVal = getSelectedButtonVal(buttonGroup);
-			DartsGBLGui.buildIt(selectedVal);
+			GuiLab2.reBuildIt(selectedVal);
+			GuiLab2.buildIt(selectedVal);
+			
 		} else if (n == 1) {
 			// usata se clikko Annulla
 		} else {

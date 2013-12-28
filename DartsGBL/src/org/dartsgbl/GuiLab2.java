@@ -9,10 +9,12 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class DartsGBLGui extends JFrame {
+public class GuiLab2 extends JFrame {
 
 	private static final long serialVersionUID = 5375213009082631974L;
 	private static JPanel contentPane;
+	private static PnlBodyLab2 pnlBodyLab2;
+	private static PnlIntestazioneLab2 pnlIntestazione; 
 
 	/**
 	 * Launch the application.
@@ -21,7 +23,7 @@ public class DartsGBLGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DartsGBLGui frame = new DartsGBLGui();
+					GuiLab2 frame = new GuiLab2();
 					frame.setLocationRelativeTo(null);
 					frame.pack();
 					frame.setVisible(true);
@@ -33,50 +35,50 @@ public class DartsGBLGui extends JFrame {
 	}
 
 	public static void buildIt(int numeroGiocatori) {
-		//System.out.println(numeroGiocatori);
-		
-		PnlBody pnlBodyLab2 = new PnlBody(numeroGiocatori);
-		contentPane.remove(pnlBodyLab2);
-//		contentPane.revalidate();
-//		contentPane.repaint();
+		pnlBodyLab2 = new PnlBodyLab2(numeroGiocatori);
 		GridBagConstraints gbc_pnlBodyLab2 = new GridBagConstraints();
-		gbc_pnlBodyLab2.insets = new Insets(0, 5, 5, 5);
+//		gbc_pnlBodyLab2.insets = new Insets(0, 5, 5, 5);
 		gbc_pnlBodyLab2.fill = GridBagConstraints.BOTH;
 		gbc_pnlBodyLab2.gridx = 0;
 		gbc_pnlBodyLab2.gridy = 1;
 		contentPane.add(pnlBodyLab2, gbc_pnlBodyLab2);
+		contentPane.revalidate();
+		contentPane.repaint();
+	}
+
+	public static void reBuildIt(int numeroGiocatori) {
+		contentPane.remove(pnlBodyLab2);
+		contentPane.repaint();
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public DartsGBLGui() {
+	public GuiLab2() {
 		setTitle("GuiLab2");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800, 600));
-
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
-
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{800, 0};
 		gbl_contentPane.rowHeights = new int[]{50, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
-		PnlIntestazione pnlIntestazioneLab2 = new PnlIntestazione();
+
+		pnlIntestazione = new PnlIntestazioneLab2();
 		GridBagConstraints gbc_pnlIntestazioneLab2 = new GridBagConstraints();
-		// gbc_pnlIntestazioneLab2.gridwidth = 2;
 		gbc_pnlIntestazioneLab2.insets = new Insets(5, 5, 5, 5);
 		gbc_pnlIntestazioneLab2.fill = GridBagConstraints.BOTH;
 		gbc_pnlIntestazioneLab2.gridx = 0;
 		gbc_pnlIntestazioneLab2.gridy = 0;
 		gbc_pnlIntestazioneLab2.weightx = 0;
 		gbc_pnlIntestazioneLab2.weighty = 0;
-		contentPane.add(pnlIntestazioneLab2, gbc_pnlIntestazioneLab2);
+		contentPane.add(pnlIntestazione, gbc_pnlIntestazioneLab2);
 
-		int numeroGiocatori = PnlIntestazione.getSelectedVal();
+		int numeroGiocatori = PnlIntestazioneLab2.getSelectedVal();
 		buildIt(numeroGiocatori);
 	}
 }
