@@ -3,8 +3,12 @@ package org.dartsgbl;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.Color;
+import java.awt.RenderingHints;
 import javax.swing.JRadioButton;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -21,6 +25,19 @@ public class PnlIntestazione extends JPanel {
 	private static final long serialVersionUID = -3659421407056991803L;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private static int selectedVal = 2;
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        int w = getWidth();
+        int h = getHeight();
+        Color color1 = Color.WHITE;
+        Color color2 = color1.darker();
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, h, color2);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, w, h);
+    }
 
 	/**
 	 * Create the panel.
@@ -48,6 +65,7 @@ public class PnlIntestazione extends JPanel {
 
 		JRadioButton rdb2 = new JRadioButton("2");
 		rdb2.setSelected(true);
+		rdb2.setOpaque(false);
 		buttonGroup.add(rdb2);
 		GridBagConstraints gbc_rdb2 = new GridBagConstraints();
 		gbc_rdb2.insets = new Insets(0, 0, 0, 5);
@@ -57,6 +75,7 @@ public class PnlIntestazione extends JPanel {
 		add(rdb2, gbc_rdb2);
 
 		JRadioButton rdb3 = new JRadioButton("3");
+		rdb3.setOpaque(false);
 		buttonGroup.add(rdb3);
 		GridBagConstraints gbc_rdb3 = new GridBagConstraints();
 		gbc_rdb3.insets = new Insets(0, 0, 0, 5);
@@ -66,6 +85,7 @@ public class PnlIntestazione extends JPanel {
 		add(rdb3, gbc_rdb3);
 
 		JRadioButton rdb4 = new JRadioButton("4");
+		rdb4.setOpaque(false);
 		buttonGroup.add(rdb4);
 		GridBagConstraints gbc_rdb4 = new GridBagConstraints();
 		gbc_rdb4.insets = new Insets(0, 0, 0, 5);

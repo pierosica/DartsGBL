@@ -120,18 +120,14 @@ public class PnlRow extends JPanel {
 		btnTogli.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if(PnlBody.isNumeroMorto(idriga)) {
-					System.out.println("isNumeroMorto: " + PnlBody.isNumeroMorto(idriga));
 					PnlBody.setNumeroNonMorto(idriga);
 					setRowChiusa(idpannello, idriga, false);
-					System.out.println("isNumeroMorto: " + PnlBody.isNumeroMorto(idriga));
 				}
-				
+
 				if (isRowChiusa(idpannello, idriga)){
-					System.out.println("isRowChiusa: " + isRowChiusa(idpannello, idriga));
 					setRowChiusa(idpannello, idriga, false);
-					System.out.println("isRowChiusa: " + isRowChiusa(idpannello, idriga));
 				}
 
 				if (lblNumeroC.isPreso() & lblNumeroB.isPreso()

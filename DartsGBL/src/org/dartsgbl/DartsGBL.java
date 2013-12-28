@@ -13,7 +13,7 @@ public class DartsGBL extends JFrame {
 
 	private static final long serialVersionUID = 5375213009082631974L;
 	private static JPanel contentPane;
-	private static PnlBody pnlBodyLab2;
+	private static PnlBody pnlBody;
 	private static PnlIntestazione pnlIntestazione; 
 
 	/**
@@ -35,19 +35,19 @@ public class DartsGBL extends JFrame {
 	}
 
 	public static void buildIt(int numeroGiocatori) {
-		pnlBodyLab2 = new PnlBody(numeroGiocatori);
-		GridBagConstraints gbc_pnlBodyLab2 = new GridBagConstraints();
-//		gbc_pnlBodyLab2.insets = new Insets(0, 5, 5, 5);
-		gbc_pnlBodyLab2.fill = GridBagConstraints.BOTH;
-		gbc_pnlBodyLab2.gridx = 0;
-		gbc_pnlBodyLab2.gridy = 1;
-		contentPane.add(pnlBodyLab2, gbc_pnlBodyLab2);
+		pnlBody = new PnlBody(numeroGiocatori);
+		GridBagConstraints gbc_pnlBody = new GridBagConstraints();
+		gbc_pnlBody.insets = new Insets(0, 0, 0, 0);
+		gbc_pnlBody.fill = GridBagConstraints.BOTH;
+		gbc_pnlBody.gridx = 0;
+		gbc_pnlBody.gridy = 1;
+		contentPane.add(pnlBody, gbc_pnlBody);
 		contentPane.revalidate();
 		contentPane.repaint();
 	}
 
 	public static void reBuildIt(int numeroGiocatori) {
-		contentPane.remove(pnlBodyLab2);
+		contentPane.remove(pnlBody);
 		contentPane.repaint();
 	}
 
@@ -70,7 +70,7 @@ public class DartsGBL extends JFrame {
 
 		pnlIntestazione = new PnlIntestazione();
 		GridBagConstraints gbc_pnlIntestazioneLab2 = new GridBagConstraints();
-		gbc_pnlIntestazioneLab2.insets = new Insets(5, 5, 5, 5);
+		gbc_pnlIntestazioneLab2.insets = new Insets(0, 0, 0, 0);
 		gbc_pnlIntestazioneLab2.fill = GridBagConstraints.BOTH;
 		gbc_pnlIntestazioneLab2.gridx = 0;
 		gbc_pnlIntestazioneLab2.gridy = 0;

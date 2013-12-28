@@ -4,9 +4,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.RenderingHints;
 
 public class PnlBody extends JPanel {
 
@@ -96,45 +100,45 @@ public class PnlBody extends JPanel {
 			JTextField mieiPunti = txtPuntiArray[i];
 			int totale = Integer.parseInt(mieiPunti.getText().toString());
 			int delta = 1;
-			System.out
-					.println("calcolaChiusura - for (int i = 0; i < numeroGiocatori; i++) - totale: "
-							+ totale);
-
 			for (int j = 0; j < numeroRighe; j++) {
 				PnlRow otherrow = otherpanel.rowArray[j];
 				if (j == 20) {
 					delta = 5;
 				}
-				System.out.println("giocatore: " + i);
-				System.out.println("riga: " + j);
-				System.out.println("delta: " + delta);
-
 				if (!otherrow.lblNumeroC.isPreso()
 						& !otherrow.lblNumeroB.isPreso()
 						& !otherrow.lblNumeroA.isPreso()) {
 					totale = totale + ((j + delta) * 3);
-					System.out.println("tutti apert - riga: " + j + " vale: " + ((j + delta) * 3));
 				}
 				if (!otherrow.lblNumeroC.isPreso()
 						& !otherrow.lblNumeroB.isPreso()
 						& otherrow.lblNumeroA.isPreso()) {
 					totale = totale + ((j + delta) * 2);
-					System.out.println("due aperti - riga: " + j + " vale: "
-							+ ((j + delta) * 2));
 				}
 				if (!otherrow.lblNumeroC.isPreso()
 						& otherrow.lblNumeroB.isPreso()
 						& otherrow.lblNumeroA.isPreso()) {
 					totale = totale + ((j + delta) * 1);
-					System.out.println("uno aperto - riga: " + j + " vale: "
-							+ ((j + delta) * 1));
 				}
 			}
-			System.out.println("totale: " + totale );
 			int risultato = totale;
 			mieiPunti.setText("" + risultato);
 		}
 	}
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        int w = getWidth();
+        int h = getHeight();
+        Color color1 = Color.WHITE;
+        Color color2 = color1.darker();
+        GradientPaint gp = new GradientPaint(0, 0, color2, 0, h, color1);
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, w, h);
+    }
 
 	public PnlBody(int numeroGiocatori) {
 		pnlPlayerArray = new PnlPlayer[numeroGiocatori];
@@ -180,14 +184,12 @@ public class PnlBody extends JPanel {
 			pnlPlayer = new PnlPlayer(i);
 			pnlPlayerArray[i] = pnlPlayer;
 			GridBagConstraints gbc_pnlPlayerLab2 = new GridBagConstraints();
-			gbc_pnlPlayerLab2.insets = new Insets(5, 5, 5, 5);
+			gbc_pnlPlayerLab2.insets = new Insets(0, 5, 0, 5);
 			gbc_pnlPlayerLab2.fill = GridBagConstraints.BOTH;
 			gbc_pnlPlayerLab2.gridx = i;
 			gbc_pnlPlayerLab2.gridy = 2;
 			add(pnlPlayer, gbc_pnlPlayerLab2);
 		}
-
-		setBackground(new Color(0, 0, 255));
 		setOpaque(true);
 		revalidate();
 		repaint();
