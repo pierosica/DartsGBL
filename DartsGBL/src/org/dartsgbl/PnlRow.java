@@ -1,13 +1,14 @@
 package org.dartsgbl;
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import javax.swing.JButton;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
+//import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class PnlRow extends JPanel {
 
@@ -33,6 +34,8 @@ public class PnlRow extends JPanel {
 	 * Create the panel.
 	 */
 	public PnlRow(final int idpannello, final int idriga) {
+//		Font font1 = new Font("SansSerif", Font.BOLD, 16);
+
 		Insets internalPadding = new Insets(2, 2, 2, 2);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 45, 30, 30, 30, 20 };
@@ -70,15 +73,19 @@ public class PnlRow extends JPanel {
 
 		String btnLabel = (idriga + 1 + "");
 		if (idriga == 20) {
-			btnLabel = "Bull";
+			btnLabel = "<html><font-size= +16><b>Bull</b></font></html>";
 		}
 		JButton btnPreso = new JButton(btnLabel);
+		float newSize = 16;
+		btnPreso.setFont(btnPreso.getFont().deriveFont((float)newSize));
+
 		btnPreso.setMargin(new Insets(0, 0, 0, 0));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton.insets = new Insets(2, 2, 2, 5);
 		gbc_btnNewButton.gridx = 0;
 		gbc_btnNewButton.gridy = 0;
+		
 		btnPreso.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

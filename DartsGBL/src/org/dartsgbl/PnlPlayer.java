@@ -28,7 +28,9 @@ public class PnlPlayer extends JPanel {
         int w = getWidth();
         int h = getHeight();
         Color color1 = Color.WHITE;
-        Color color2 = color1.darker();
+//        Color color2 = color1.darker();
+//        Color color1 = new Color(231,231,231);
+        Color color2 = new Color(201,201,201);
         GradientPaint gp = new GradientPaint(0, 0, color1, 0, h, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
@@ -62,7 +64,7 @@ public class PnlPlayer extends JPanel {
 			GridBagConstraints gbc_riga = new GridBagConstraints();
 			gbc_riga.fill = GridBagConstraints.BOTH;
 //			gbc_riga.insets = new Insets(0, 0, 0, 0);
-			gbc_riga.insets = new Insets(delta, 2, 1, 2);
+			gbc_riga.insets = new Insets(delta, 2, 3, 2);
 			gbc_riga.gridx = 0;
 			gbc_riga.gridy = i;
 			add(riga, gbc_riga);

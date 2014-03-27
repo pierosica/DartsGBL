@@ -1,9 +1,11 @@
 package org.dartsgbl;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -35,6 +37,9 @@ public class DartsGBL extends JFrame {
 	}
 
 	public static void buildIt(int numeroGiocatori) {
+//		int str=PnlIntestazione.getNumeroGiocatoriOld();
+//		System.out.println(str);
+//		System.out.println("DartsGBL BuildIt numGiocatoriOld - I giocatori della partita prima erano:  " + PnlIntestazione.numGiocatoriOld);
 		pnlBody = new PnlBody(numeroGiocatori);
 		GridBagConstraints gbc_pnlBody = new GridBagConstraints();
 		gbc_pnlBody.insets = new Insets(0, 0, 0, 0);
@@ -46,7 +51,8 @@ public class DartsGBL extends JFrame {
 		contentPane.repaint();
 	}
 
-	public static void reBuildIt(int numeroGiocatori) {
+	public static void reBuildIt(int numeroGiocatoriOld) {
+//		PnlBody.getNomeGiocatore(numeroGiocatoriOld);
 		contentPane.remove(pnlBody);
 		contentPane.repaint();
 	}
@@ -78,7 +84,8 @@ public class DartsGBL extends JFrame {
 		gbc_pnlIntestazioneLab2.weighty = 0;
 		contentPane.add(pnlIntestazione, gbc_pnlIntestazioneLab2);
 
-		int numeroGiocatori = PnlIntestazione.getSelectedVal();
+//		int numeroGiocatori = PnlIntestazione.getSelectedVal();
+		int numeroGiocatori = PnlIntestazione.getNumeroGiogatori();
 		buildIt(numeroGiocatori);
 	}
 }
